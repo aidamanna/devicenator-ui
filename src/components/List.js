@@ -1,38 +1,42 @@
-import React, { Component } from 'react';
-import Loading from './Loading';
+import React, { Component } from 'react'
+import Loading from './Loading'
+import Item from './Item'
+import { listDevices } from '../api'
 
 class List extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       isLoading: false,
-      videos: null
-    };
+      devices: null
+    }
   }
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    //Emulación de llamada a API externa
-    setTimeout(() => {
-      this.setState({ isLoading: false , videos:[{id:1},{id:2},{id:3}]});
-    },2000);
+
+  componentDidMount () {
+    this.setState({ isLoading: true })
+
+    listDevices().then(data => {
+      this.setState({ isLoading: false, devices: data })
+    })
   }
-  render() {
-    const { videos,  isLoading } = this.state;
+
+  render () {
+    const { devices, isLoading } = this.state
     if (isLoading) {
-      return <Loading message="Loadding ..."/>;
+      return (<Loading message="Loading ..."/>)
     }
     return (<React.Fragment>
-        <div className="container">
-          <div className="grid-container">
-              {
-                videos && videos.map((video,i) => {
-                  return (<span>#{video.id}</span>)
-                })
-              }
-          </div>
+      <div className="content">
+        <div className="list">
+          {
+            devices && devices.map((device, i) => {
+              return (<Item key={i} data={device}/>)
+            })
+          }
         </div>
-     </React.Fragment>);
+      </div>
+    </React.Fragment>)
   }
 }
 
-export default List;
+export default List
