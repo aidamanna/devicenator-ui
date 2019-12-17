@@ -1,45 +1,45 @@
-import React, { Component } from 'react';
-import Loading from './Loading';
-import Item from './Item';
-import Header from './Header';
-import { listDevices } from '../api';
+import React, { Component } from 'react'
+import Loading from './Loading'
+import Item from './Item'
+import Header from './Header'
+import { listDevices } from '../api'
 
 class List extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       isLoading: false,
       devices: null
-    };
+    }
   }
 
-  componentDidMount() {
-    this.setState({ isLoading: true });
+  componentDidMount () {
+    this.setState({ isLoading: true })
 
     listDevices().then(data => {
-        this.setState({ isLoading: false , devices: data});
+      this.setState({ isLoading: false, devices: data })
         
     })
   }
 
-  render() {
-    const { devices,  isLoading } = this.state;
+  render () {
+    const { devices, isLoading } = this.state
     if (isLoading) {
-        return (<Loading message="Loading ..."/>);
+      return (<Loading message="Loading ..."/>)
     }
     return (<React.Fragment>
-        <Header/>
-        <div className="container">
-          <div className="grid-container">
-              {
-                devices && devices.map((device,i) => {
-                  return (<Item key={i} data={device}/>)
-                })
-              }
-          </div>
+      <Header/>
+      <div className="container">
+        <div className="grid-container">
+          {
+            devices && devices.map((device, i) => {
+              return (<Item key={i} data={device}/>)
+            })
+          }
         </div>
-     </React.Fragment>);
+      </div>
+    </React.Fragment>)
   }
 }
 
-export default List;
+export default List
