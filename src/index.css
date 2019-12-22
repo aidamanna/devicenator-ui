@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
 
+:root {
+    --off-white: #F4F1EC;
+    --turquoise: #77C6D4;
+    --dark-turquoise: #418A99;
+    --gray: #939EA1;
+    --dark-gray: #32454F;
+}
+
+
 body {
     margin: 0;
     padding: 0;
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    background-color: var(--dark-gray);
 }
 
 .loader{
@@ -20,13 +30,11 @@ body {
     top: 0;
     width: 100%;
     padding: 25px;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-color: #A0CDD2;
+    background-color: var(--off-white);
 }
 
 .logo-text {
-    color: #324159;
+    color: var(--dark-gray);
     font-family: 'Amatic SC';
     font-size: 30px;
     font-weight: bold;
@@ -51,10 +59,10 @@ body {
 }
 
 .list-item {
-	color: #3a3a3a;
+	color: var(--dark-gray);
 	font-size: 16px;
     border-radius: 8px;
-    border: 1px solid #1FAFBF;
+    background-color: var(--off-white);
     padding: 8px 20px;
     margin: 18px 6px;
 }
