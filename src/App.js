@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import List from './components/List'
+import Root from './components/Root'
 import Header from './components/Header'
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <List/>
+        <Root/>
       </div>
     )
   }

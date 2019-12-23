@@ -62,10 +62,23 @@ body {
 	font-size: 16px;
     border-radius: 8px;
     background-color: var(--off-white);
-    padding: 8px 20px;
-    margin: 18px 6px;
+    padding: 18px 30px;
+    margin: 18px 0px;
 }
 
-.list-item-title {
-	padding:10px;
+.detail {
+    margin: auto;
+    width: 700px;
+    border-radius: 8px;
+    background-color: var(--off-white);
+    padding: 8px 20px;
+    margin-top: 18px;
+}
+
+.detail-text {
+    color: var(--dark-gray);
+	font-size: 16px;
+    border-radius: 8px;
+    background-color: var(--off-white);
+    padding: 18px 30px;
 }
