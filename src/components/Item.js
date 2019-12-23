@@ -1,9 +1,11 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const Item = ({ data }) => (
-  <div className="grid-item" >
-    <div className="preview-title">{data.model} {data.operatingSystem} {data.operatingSystemVersion}</div>
+  <div className="list-item" >
+    <div className="list-item-title">
+      {data.model} - {data.vendor} {data.operatingSystem} {data.operatingSystemVersion}
+    </div>
   </div>
 )
 

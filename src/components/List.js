@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Loading from './Loading'
 import Item from './Item'
-import Header from './Header'
 import { listDevices } from '../api'
 
 class List extends Component {
@@ -18,7 +17,6 @@ class List extends Component {
 
     listDevices().then(data => {
       this.setState({ isLoading: false, devices: data })
-        
     })
   }
 
@@ -28,9 +26,8 @@ class List extends Component {
       return (<Loading message="Loading ..."/>)
     }
     return (<React.Fragment>
-      <Header/>
-      <div className="container">
-        <div className="grid-container">
+      <div className="content">
+        <div className="list">
           {
             devices && devices.map((device, i) => {
               return (<Item key={i} data={device}/>)

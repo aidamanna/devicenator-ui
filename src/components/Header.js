@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Header = () => (
-  <div className="header-content">
-    <div className="header-title-text" >My devices</div>
-    <input type="button" value="Add device" className="add-button"/>
-  </div>
+  <nav className="navbar">
+    <img className="logo-image" src="logo.png" alt="devicenator logo"/>
+    <div className="logo-text" >Devicenator</div>
+  </nav>
 )
 
 export default Header
