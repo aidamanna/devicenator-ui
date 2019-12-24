@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Item = ({ data }) => (
   <div className="list-item" >
-    {data.model} - {data.vendor} {data.operatingSystem} {data.operatingSystemVersion}
+    <strong>{data.model}</strong> - {data.vendor} {data.operatingSystem} {data.operatingSystemVersion}
   </div>
 )
 
