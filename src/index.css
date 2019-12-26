@@ -63,6 +63,10 @@ h1 {
     grid-gap: 20px;
 }
 
+.list-item-link {
+    text-decoration: none;
+}
+
 .list-item {
 	color: var(--dark-gray);
 	font-size: 16px;
