@@ -27,6 +27,7 @@ class List extends Component {
     }
     return (<React.Fragment>
       <div className="content">
+        <h1>My devices</h1>
         <div className="list">
           {
             devices && devices.map((device, i) => {

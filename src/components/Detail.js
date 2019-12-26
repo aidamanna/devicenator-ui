@@ -29,10 +29,10 @@ class Detail extends Component {
 
     return (<React.Fragment>
       <div className="content">
+        <h1>{device.model}</h1>
         <div className="detail">
           <div className="detail-text">
             <p><strong>Imei:</strong> {device.imei}</p>
-            <p><strong>Model:</strong> {device.model}</p>
             <p><strong>Operating system:</strong> {device.operatingSystem} {device.operatingSystemVersion}</p>
             <p><strong>Vendor:</strong> {device.vendor}</p>
           </div>

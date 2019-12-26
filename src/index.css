@@ -15,6 +15,12 @@ body {
     background-color: var(--dark-gray);
 }
 
+h1 {
+    color: var(--off-white);
+    font-size: 25px;
+    font-weight: normal;
+}
+
 .loader{
     position: fixed;
     width: 100%;
@@ -47,12 +53,12 @@ body {
 
 .content {
     padding-top: 110px;
+    margin: auto;
+    width: 700px;
 }
 
 
 .list {
-    margin: auto;
-    width: 700px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 20px;
 }
@@ -67,8 +73,6 @@ body {
 }
 
 .detail {
-    margin: auto;
-    width: 700px;
     border-radius: 8px;
     background-color: var(--off-white);
     margin-top: 18px;
