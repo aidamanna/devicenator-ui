@@ -30,13 +30,13 @@ class List extends Component {
         <header>
           <h1>My devices</h1>
         </header>
-        <div className="list">
+        <ul className="list">
           {
             devices && devices.map((device, i) => {
               return (<Item key={i} data={device}/>)
             })
           }
-        </div>
+        </ul>
       </main>
     </React.Fragment>)
   }
