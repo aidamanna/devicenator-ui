@@ -38,6 +38,12 @@ h1 {
     background-color: var(--off-white);
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo-text {
     color: var(--dark-gray);
     font-family: 'Amatic SC';
@@ -47,7 +53,6 @@ h1 {
 
 .logo-image {
     width: 34px;
-    float: left;
     margin: 0px 20px;
 }
 
