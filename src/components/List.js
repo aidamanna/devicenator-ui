@@ -26,8 +26,10 @@ class List extends Component {
       return (<Loading message="Loading ..."/>)
     }
     return (<React.Fragment>
-      <div className="content">
-        <h1>My devices</h1>
+      <main className="content">
+        <header>
+          <h1>My devices</h1>
+        </header>
         <div className="list">
           {
             devices && devices.map((device, i) => {
@@ -35,7 +37,7 @@ class List extends Component {
             })
           }
         </div>
-      </div>
+      </main>
     </React.Fragment>)
   }
 }
