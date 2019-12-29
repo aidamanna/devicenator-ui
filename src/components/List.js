@@ -23,7 +23,7 @@ class List extends Component {
   render () {
     const { devices, isLoading } = this.state
     if (isLoading || !devices) {
-      return (<Loading message="Loading ..."/>)
+      return (<Loading/>)
     }
     return (<React.Fragment>
       <main className="content">

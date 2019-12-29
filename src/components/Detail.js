@@ -24,7 +24,7 @@ class Detail extends Component {
   render () {
     const { device, isLoading } = this.state
     if (isLoading || !device) {
-      return (<Loading message="Loading ..."/>)
+      return (<Loading/>)
     }
 
     return (<React.Fragment>

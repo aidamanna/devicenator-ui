@@ -1,15 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
 
 class Loading extends Component {
-    
-    render() {
-        return (<div className="loader">{this.props.message}</div>);
-    }
+  render () {
+    return (<main className="loader-wrapper">
+      <div className="loader"></div>
+    </main>)
+  }
 }
 
-Loading.propTypes = {
-    message: PropTypes.string.isRequired
-};
-
-export default Loading;
+export default Loading
