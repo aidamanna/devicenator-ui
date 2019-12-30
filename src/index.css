@@ -35,8 +35,10 @@ body {
 .footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 14px;
     font-style: italic;
+    color: var(--dark-gray);
     background-color: var(--off-white);
     border-top: 2px solid var(--dark-gray);
 }
@@ -116,6 +118,8 @@ ul {
 }
 
 .list-item {
+    display: flex;
+    align-items: center;
     color: var(--dark-gray);
     font-size: 16px;
     border-radius: 8px;
