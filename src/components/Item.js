@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const Item = ({ data }) => (
-  <Link className="list-item-link" to={`/${data.imei}`}>
-    <li className="list-item" >
+  <li className="list-item" >
+    <Link className="list-item-link" to={`/${data.imei}`}>
       <strong>{data.model}</strong> - {data.vendor} {data.operatingSystem} {data.operatingSystemVersion}
-    </li>
-  </Link>
+    </Link>
+  </li>
 )
 
 Item.propTypes = {

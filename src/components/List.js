@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Loading from './Loading'
 import Item from './Item'
+import Button from './Button'
 import { listDevices } from '../api'
 
 class List extends Component {
@@ -29,6 +30,7 @@ class List extends Component {
       <main className="content">
         <header>
           <h1>My devices</h1>
+          <Button text="Add device"/>
         </header>
         <ul className="list">
           {
