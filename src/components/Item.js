@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Item = ({ data }) => (
   <li className="list-item" >
-    <Link className="list-item-link" to={`/${data.imei}`}>
+    <Link to={`/${data.imei}`}>
       <strong>{data.model}</strong> - {data.vendor} {data.operatingSystem} {data.operatingSystemVersion}
     </Link>
   </li>

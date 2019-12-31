@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Loading from './Loading'
 import Item from './Item'
 import Button from './Button'
+import Add from './Add'
 import { listDevices } from '../api'
 
 class List extends Component {
@@ -9,7 +10,8 @@ class List extends Component {
     super(props)
     this.state = {
       isLoading: false,
-      devices: null
+      devices: null,
+      showAdd: true
     }
   }
 
@@ -27,8 +29,8 @@ class List extends Component {
       return (<Loading/>)
     }
     return (<React.Fragment>
-      <main className="content">
-        <header>
+      <div className="content">
+        <header className="content-header">
           <h1>My devices</h1>
           <Button text="Add device"/>
         </header>
@@ -39,7 +41,8 @@ class List extends Component {
             })
           }
         </ul>
-      </main>
+      </div>
+      { this.state.showAdd && (<Add onClose={this.handleCloseAdd}/>)}
     </React.Fragment>)
   }
 }

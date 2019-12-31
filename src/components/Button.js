@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-class Button extends Component {
-  render () {
-    return (<div className="button">{this.props.text}</div>)
-  }
-}
+const Button = ({ onClickAdd, text }) => (
+  <input type="button" onClick={onClickAdd} value={text} className="button"/>
+)
 
 Button.propTypes = {
+  onClickAdd: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired
 }
 

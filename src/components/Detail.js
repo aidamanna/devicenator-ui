@@ -28,8 +28,8 @@ class Detail extends Component {
     }
 
     return (<React.Fragment>
-      <main className="content">
-        <header>
+      <div className="content">
+        <header className="content-header">
           <h1>{device.model}</h1>
         </header>
         <div className="detail">
@@ -39,7 +39,7 @@ class Detail extends Component {
             <p><strong>Vendor:</strong> {device.vendor}</p>
           </div>
         </div>
-      </main>
+      </div>
     </React.Fragment>)
   }
 }
