@@ -11,12 +11,12 @@ class Add extends Component {
         <div className="modal">
           <header className="modal-header">
             <h2> Add new device </h2>
-            <span className="close" >&times;</span>
+            <span className="close" onClick={onClose(false)}>&times;</span>
           </header>
           <div className="modal-content">This is content</div>
           <footer className="modal-footer">
-            <Button text="Add device"/>
-            <Button className="button-left-margin" text="Cancel"/>
+            <Button text="Add device" onClick={onClose(true)}/>
+            <Button text="Cancel" onClick={onClose(false)}/>
           </footer>
         </div>
       </div>

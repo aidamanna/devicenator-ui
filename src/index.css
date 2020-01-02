@@ -163,6 +163,13 @@ h1 {
     margin-left: 8px;
 }
 
+.button:hover,
+.button:focus {
+    /* color: var(--dark-gray); */
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .modal-container {
     position: fixed;
     z-index: 1;

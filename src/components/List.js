@@ -11,8 +11,10 @@ class List extends Component {
     this.state = {
       isLoading: false,
       devices: null,
-      showAdd: true
+      showAdd: false
     }
+    this.handleAdd = this.handleAdd.bind(this)
+    this.handleCloseAdd = this.handleCloseAdd.bind(this)
   }
 
   componentDidMount () {
@@ -21,6 +23,24 @@ class List extends Component {
     listDevices().then(data => {
       this.setState({ isLoading: false, devices: data })
     })
+  }
+
+  handleAdd (e) {
+    e.preventDefault()
+    this.setState({ showAdd: true })
+  }
+
+  handleCloseAdd (reload) {
+    return () => {
+      if (reload) {
+        this.setState({ isLoading: true, showAdd: false })
+        listDevices().then(data => {
+          this.setState({ videos: data, isLoading: false, showAdd: false })
+        })
+      } else {
+        this.setState({ showAdd: false })
+      }
+    }
   }
 
   render () {
@@ -32,7 +52,7 @@ class List extends Component {
       <div className="content">
         <header className="content-header">
           <h1>My devices</h1>
-          <Button text="Add device"/>
+          <Button onClick={this.handleAdd} text="Add device"/>
         </header>
         <ul className="list">
           {
