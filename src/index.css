@@ -113,11 +113,37 @@ a {
 
 .list-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-size: 16px;
     border-radius: 8px;
     background-color: var(--off-white);
     padding: 18px 30px;
+}
+
+.icon-buttons-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 0;
+    padding: 8px;
+    margin-left: 8px;;
+    color: var(--off-white);
+    background-color: var(--dark-turquoise);
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    background-color: var(--turquoise);
 }
 
 .detail {
@@ -163,8 +189,7 @@ h1 {
     margin-left: 8px;
 }
 
-.button:hover,
-.button:focus {
+.button:hover {
     text-decoration: none;
     cursor: pointer;
     background-color: var(--turquoise);
@@ -232,16 +257,10 @@ h2 {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover {
     color: var(--dark-gray);
     text-decoration: none;
     cursor: pointer;
-}
-
-label {
-    /* display: block; */
-    /* font-weight: bold; */
 }
 
 input[type=text] {
