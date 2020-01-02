@@ -13,10 +13,16 @@ class Add extends Component {
             <h2> Add new device </h2>
             <span className="close" onClick={onClose(false)}>&times;</span>
           </header>
-          <div className="modal-content">This is content</div>
+          <form className="modal-content" >
+            <input type="text" placeholder="Imei"/>
+            <input type="text" placeholder="Model"/>
+            <input type="text" placeholder="Operating system"/>
+            <input type="text" placeholder="Operating system version"/>
+            <input type="text" placeholder="Vendor"/>
+          </form>
           <footer className="modal-footer">
-            <Button text="Add device" onClick={onClose(true)}/>
             <Button text="Cancel" onClick={onClose(false)}/>
+            <Button text="Add device" onClick={onClose(true)}/>
           </footer>
         </div>
       </div>
