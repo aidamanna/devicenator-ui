@@ -8,6 +8,12 @@ export const getDevice = async (imei) => {
   return device.json()
 }
 
-export const addDevice = async (imei, vendor, model, operatingSystem, operatingSystemVersion) => {
-
+export const addDevice = async (device) => {
+  await fetch('http://35.223.227.103:8080/devices', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(device)
+  })
 }

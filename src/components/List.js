@@ -35,7 +35,7 @@ class List extends Component {
       if (reload) {
         this.setState({ isLoading: true, showAdd: false })
         listDevices().then(data => {
-          this.setState({ videos: data, isLoading: false, showAdd: false })
+          this.setState({ devices: data, isLoading: false, showAdd: false })
         })
       } else {
         this.setState({ showAdd: false })
