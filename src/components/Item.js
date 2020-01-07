@@ -3,26 +3,40 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import { deleteDevice } from '../api'
+import DeleteConfirmation from './DeleteConfirmation'
+import { listDevices } from '../api'
 
 class Item extends Component {
   constructor (props) {
     super(props)
-    this.handleDelete = this.handleDelete.bind(this)
+    this.state = {
+      showDeleteConfirmation: false
+    }
+    this.handleDeleteConfirmation = this.handleDeleteConfirmation.bind(this)
+    this.handleCloseDeleteConfirmation = this.handleCloseDeleteConfirmation.bind(this)
   }
 
-  handleDelete (e) {
-    e.preventDefault()
-    console.log('delete')
-    const { device, onDelete } = this.props
+  handleDeleteConfirmation () {
+    this.setState({ showDeleteConfirmation: true })
+  }
 
-    deleteDevice(device.imei).then(onDelete())
+  handleCloseDeleteConfirmation (reload) {
+    return () => {
+      if (reload) {
+        this.setState({ isLoading: true, showAdd: false })
+        listDevices().then(data => {
+          this.setState({ devices: data, isLoading: false, showDeleteConfirmation: false })
+        })
+      } else {
+        this.setState({ showDeleteConfirmation: false })
+      }
+    }
   }
 
   render () {
     const { device } = this.props
 
-    return (<li className="list-item" >
+    return (<div><li className="list-item" >
       <Link to={`/${device.imei}`}>
         <strong>{device.model}</strong> - {device.vendor} {device.operatingSystem} {device.operatingSystemVersion}
       </Link>
@@ -30,11 +44,14 @@ class Item extends Component {
         <button className="icon-button">
           <FontAwesomeIcon icon={faPen}/>
         </button>
-        <button className="icon-button" onClick={this.handleDelete}>
+        <button className="icon-button" onClick={this.handleDeleteConfirmation}>
           <FontAwesomeIcon icon={faTrashAlt}/>
         </button>
       </div>
-    </li>)
+    </li>
+    { this.state.showDeleteConfirmation &&
+        (<DeleteConfirmation imei={device.imei} onClose={this.handleCloseDeleteConfirmation}/>)}
+    </div>)
   }
 }
 

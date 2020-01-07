@@ -11,11 +11,12 @@ class List extends Component {
     this.state = {
       isLoading: false,
       devices: null,
-      showAdd: false
+      showAdd: false,
+      showDeleteConfirmation: false
     }
     this.handleAdd = this.handleAdd.bind(this)
     this.handleCloseAdd = this.handleCloseAdd.bind(this)
-    this.handleRefreshOnDelete = this.handleRefreshOnDelete.bind(this)
+    this.handleCloseDeleteConfirmation = this.handleCloseDeleteConfirmation.bind(this)
   }
 
   componentDidMount () {
@@ -44,12 +45,16 @@ class List extends Component {
     }
   }
 
-  handleRefreshOnDelete () {
+  handleCloseDeleteConfirmation (reload) {
     return () => {
-      this.setState({ isLoading: true })
-      listDevices().then(data => {
-        this.setState({ devices: data, isLoading: false })
-      })
+      if (reload) {
+        this.setState({ isLoading: true, showAdd: false })
+        listDevices().then(data => {
+          this.setState({ devices: data, isLoading: false, showDeleteConfirmation: false })
+        })
+      } else {
+        this.setState({ showDeleteConfirmation: false })
+      }
     }
   }
 
@@ -67,7 +72,7 @@ class List extends Component {
         <ul className="list">
           {
             devices && devices.map((device, i) => {
-              return (<Item key={i} device={device} onDelete={this.handleRefreshOnDelete}/>)
+              return (<Item key={i} device={device} onDelete={this.handleDeleteConfirmation}/>)
             })
           }
         </ul>

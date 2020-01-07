@@ -59,7 +59,7 @@ class Add extends Component {
             <input type="text" value={operatingSystemVersion}placeholder="Operating system version" onChange={this.handleChange('operatingSystemVersion')}/>
           </form>
           <footer className="modal-footer">
-            <Button text="Cancel" type="input" onClick={onClose(false)}/>
+            <Button text="Cancel" onClick={onClose(false)}/>
             <input type="submit" value="Add device" onClick={this.handleSubmit} disabled={isSending} className="button"/>
           </footer>
         </div>
