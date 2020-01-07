@@ -17,3 +17,9 @@ export const addDevice = async (device) => {
     body: JSON.stringify(device)
   })
 }
+
+export const deleteDevice = async (imei) => {
+  await fetch('http://35.223.227.103:8080/devices/' + imei, {
+    method: 'DELETE'
+  })
+}
