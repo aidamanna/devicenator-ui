@@ -10,4 +10,4 @@ Button.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export default Button
+export default React.memo(Button)
