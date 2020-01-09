@@ -40,6 +40,10 @@ class Add extends Component {
     }).then(onClose(true))
   }
 
+  componentDidMount () {
+    this.imeiInput.focus()
+  }
+
   render () {
     const { isSending, imei, model, vendor, operatingSystem, operatingSystemVersion } = this.state
     const { onClose } = this.props
@@ -52,7 +56,7 @@ class Add extends Component {
             <span className="close" onClick={onClose(false)}>&times;</span>
           </header>
           <form className="modal-content" >
-            <input type="text" value={imei} placeholder="Imei" onChange={this.handleChange('imei')}/>
+            <input type="text" value={imei} placeholder="Imei" onChange={this.handleChange('imei')} ref={(input) => { this.imeiInput = input }}/>
             <input type="text" value={model} placeholder="Model" onChange={this.handleChange('model')}/>
             <input type="text" value={vendor}placeholder="Vendor" onChange={this.handleChange('vendor')}/>
             <input type="text" value={operatingSystem}placeholder="Operating system" onChange={this.handleChange('operatingSystem')}/>
