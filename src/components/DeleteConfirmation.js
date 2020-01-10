@@ -14,14 +14,14 @@ class DeleteConfirmation extends Component {
 
   handleDelete (e) {
     e.preventDefault()
-    const { imei, onClose } = this.props
+    const { device, onClose } = this.props
 
-    deleteDevice(imei).then(onClose(true))
+    deleteDevice(device.imei).then(onClose(true))
   }
 
   render () {
     const { isDeleting } = this.state
-    const { onClose } = this.props
+    const { device, onClose } = this.props
 
     return (<div className="modal-container">
       <div className='modal-wrapper'>
@@ -31,7 +31,7 @@ class DeleteConfirmation extends Component {
             <span className="close" onClick={onClose(false)}>&times;</span>
           </header>
           <div className="modal-content">
-            <p>Are you sure you want to delete the device?</p>
+            <p>Are you sure you want to delete the device <strong>{device.vendor} {device.model}</strong>?</p>
           </div>
           <footer className="modal-footer">
             <Button text="Cancel" onClick={onClose(false)}/>
@@ -45,7 +45,7 @@ class DeleteConfirmation extends Component {
 
 DeleteConfirmation.propTypes = {
   onClose: PropTypes.func.isRequired,
-  imei: PropTypes.string.isRequired
+  device: PropTypes.object.isRequired
 }
 
 export default DeleteConfirmation

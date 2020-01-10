@@ -49,7 +49,7 @@ class Item extends Component {
       </div>
     </li>
     { this.state.showDeleteConfirmation &&
-      (<DeleteConfirmation imei={device.imei} onClose={this.handleCloseDeleteConfirmation}/>)}
+      (<DeleteConfirmation device={device} onClose={this.handleCloseDeleteConfirmation}/>)}
     </div>)
   }
 }
