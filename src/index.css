@@ -7,6 +7,8 @@
     --gray: #939EA1;
     --light-gray: #B0BEC2;
     --dark-gray: #32454F;
+    --red: #A1584A;
+    --light-red: #C96F5D;
     --transparent: rgba(0,0,0,0.6);
 }
 
@@ -136,7 +138,7 @@ a {
     align-items: center;
 }
 
-.icon-button {
+.icon-btn-default {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,9 +153,29 @@ a {
     background-color: var(--dark-turquoise);
 }
 
-.icon-button:hover {
+.icon-btn-default:hover {
     cursor: pointer;
     background-color: var(--turquoise);
+}
+
+.icon-btn-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 0;
+    padding: 8px;
+    margin-left: 8px;;
+    color: var(--off-white);
+    background-color: var(--red);
+}
+
+.icon-btn-secondary:hover {
+    cursor: pointer;
+    background-color: var(--light-red);
 }
 
 .detail {
@@ -222,6 +244,25 @@ h1 {
     text-decoration: none;
     cursor: pointer;
     background-color: var(--light-gray);
+}
+
+.btn-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--off-white);
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: var(--red);
+    padding: 10px 20px;
+    border-width: 0;
+    margin-left: 8px;
+}
+
+.btn-secondary:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--light-red);
 }
 
 .modal-container {

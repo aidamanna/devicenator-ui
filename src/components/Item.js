@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import DeleteConfirmation from './DeleteConfirmation'
 import Edit from './Edit'
+import IconButton from './IconButton';
 
 class Item extends Component {
   constructor (props) {
@@ -61,12 +62,12 @@ class Item extends Component {
         <strong>{device.vendor} {device.model}</strong> - {device.operatingSystem} {device.operatingSystemVersion}
       </Link>
       <div className="icon-buttons-wrapper">
-        <button className="icon-button" onClick={this.handleEdit}>
+        <IconButton theme="default" onClick={this.handleEdit}>
           <FontAwesomeIcon icon={faPen}/>
-        </button>
-        <button className="icon-button" onClick={this.handleDeleteConfirmation}>
+        </IconButton>
+        <IconButton theme="secondary" onClick={this.handleDeleteConfirmation}>
           <FontAwesomeIcon icon={faTrashAlt}/>
-        </button>
+        </IconButton>
       </div>
     </li>
     { this.state.showDeleteConfirmation &&

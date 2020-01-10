@@ -7,7 +7,7 @@ const Button = (props) => (
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  them: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired
 }
 

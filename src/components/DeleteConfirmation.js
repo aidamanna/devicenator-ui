@@ -35,7 +35,7 @@ class DeleteConfirmation extends Component {
           </div>
           <footer className="modal-footer">
             <Button theme="primary" onClick={onClose(false)}>Cancel</Button>
-            <Button theme="default" onClick={this.handleDelete} disabled={isDeleting}>Delete</Button>
+            <Button theme="secondary" onClick={this.handleDelete} disabled={isDeleting}>Delete</Button>
           </footer>
         </div>
       </div>
