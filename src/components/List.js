@@ -15,7 +15,7 @@ class List extends Component {
     }
     this.handleAdd = this.handleAdd.bind(this)
     this.handleCloseAdd = this.handleCloseAdd.bind(this)
-    this.handleRefreshOnDelete = this.handleRefreshOnDelete.bind(this)
+    this.handleRefreshList = this.handleRefreshList.bind(this)
   }
 
   componentDidMount () {
@@ -44,7 +44,7 @@ class List extends Component {
     }
   }
 
-  handleRefreshOnDelete () {
+  handleRefreshList () {
     return () => {
       this.setState({ isLoading: true })
       listDevices().then(data => {
@@ -67,7 +67,7 @@ class List extends Component {
         <ul className="list">
           {
             devices && devices.map((device, i) => {
-              return (<Item key={i} device={device} onDelete={this.handleRefreshOnDelete}/>)
+              return (<Item key={i} device={device} onRefresh={this.handleRefreshList()}/>)
             })
           }
         </ul>
