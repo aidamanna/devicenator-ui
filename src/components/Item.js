@@ -4,19 +4,40 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import DeleteConfirmation from './DeleteConfirmation'
+import Edit from './Edit'
 
 class Item extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      showEdit: false,
       showDeleteConfirmation: false
     }
+    this.handleEdit = this.handleEdit.bind(this)
+    this.handleCloseEdit = this.handleCloseEdit.bind(this)
     this.handleDeleteConfirmation = this.handleDeleteConfirmation.bind(this)
     this.handleCloseDeleteConfirmation = this.handleCloseDeleteConfirmation.bind(this)
   }
 
+  handleEdit () {
+    this.setState({ showEdit: true })
+  }
+
   handleDeleteConfirmation () {
     this.setState({ showDeleteConfirmation: true })
+  }
+
+  handleCloseEdit (reload) {
+    const { onRefresh } = this.props
+
+    return () => {
+      if (reload) {
+        this.setState({ showEdit: false })
+        onRefresh()
+      } else {
+        this.setState({ showEdit: false })
+      }
+    }
   }
 
   handleCloseDeleteConfirmation (reload) {
@@ -40,7 +61,7 @@ class Item extends Component {
         <strong>{device.vendor} {device.model}</strong> - {device.operatingSystem} {device.operatingSystemVersion}
       </Link>
       <div className="icon-buttons-wrapper">
-        <button className="icon-button">
+        <button className="icon-button" onClick={this.handleEdit}>
           <FontAwesomeIcon icon={faPen}/>
         </button>
         <button className="icon-button" onClick={this.handleDeleteConfirmation}>
@@ -50,6 +71,8 @@ class Item extends Component {
     </li>
     { this.state.showDeleteConfirmation &&
       (<DeleteConfirmation device={device} onClose={this.handleCloseDeleteConfirmation}/>)}
+    { this.state.showEdit &&
+      (<Edit device={device} onClose={this.handleCloseEdit}/>)}
     </div>)
   }
 }

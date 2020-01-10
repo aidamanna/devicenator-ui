@@ -18,6 +18,16 @@ export const addDevice = async (device) => {
   })
 }
 
+export const updateDevice = async (imei, device) => {
+  await fetch('http://35.223.227.103:8080/devices/' + imei, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(device)
+  })
+}
+
 export const deleteDevice = async (imei) => {
   await fetch('http://35.223.227.103:8080/devices/' + imei, {
     method: 'DELETE'
