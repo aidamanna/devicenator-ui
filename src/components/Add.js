@@ -57,8 +57,8 @@ class Add extends Component {
           </header>
           <form className="modal-content" >
             <input type="text" value={imei} placeholder="Imei" onChange={this.handleChange('imei')} ref={(input) => { this.imeiInput = input }}/>
-            <input type="text" value={model} placeholder="Model" onChange={this.handleChange('model')}/>
             <input type="text" value={vendor}placeholder="Vendor" onChange={this.handleChange('vendor')}/>
+            <input type="text" value={model} placeholder="Model" onChange={this.handleChange('model')}/>
             <input type="text" value={operatingSystem}placeholder="Operating system" onChange={this.handleChange('operatingSystem')}/>
             <input type="text" value={operatingSystemVersion}placeholder="Operating system version" onChange={this.handleChange('operatingSystemVersion')}/>
           </form>
