@@ -37,7 +37,7 @@ class Item extends Component {
 
     return (<div><li className="list-item" >
       <Link to={`/${device.imei}`}>
-        <strong>{device.model}</strong> - {device.vendor} {device.operatingSystem} {device.operatingSystemVersion}
+        <strong>{device.vendor} {device.model}</strong> - {device.operatingSystem} {device.operatingSystemVersion}
       </Link>
       <div className="icon-buttons-wrapper">
         <button className="icon-button">
