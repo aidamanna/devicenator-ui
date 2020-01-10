@@ -66,9 +66,11 @@ class List extends Component {
         </header>
         <ul className="list">
           {
-            devices && devices.map((device, i) => {
-              return (<Item key={i} device={device} onRefresh={this.handleRefreshList()}/>)
-            })
+            devices &&
+            devices.sort((a, b) => (a.vendor.toLowerCase() > b.vendor.toLowerCase()) ? 1 : (a.vendor.toLowerCase() === b.vendor.toLowerCase()) ? ((a.model.toLowerCase() > b.model.toLowerCase()) ? 1 : -1) : -1)
+              .map((device, i) => {
+                return (<Item key={i} device={device} onRefresh={this.handleRefreshList()}/>)
+              })
           }
         </ul>
       </div>
