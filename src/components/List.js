@@ -62,7 +62,7 @@ class List extends Component {
       <div className="content">
         <header className="content-header">
           <h1>My devices</h1>
-          <Button onClick={this.handleAdd} text="Add device"/>
+          <Button theme="default" onClick={this.handleAdd}>Add device</Button>
         </header>
         <ul className="list">
           {

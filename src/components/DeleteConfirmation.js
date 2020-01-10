@@ -34,8 +34,8 @@ class DeleteConfirmation extends Component {
             <p>Are you sure you want to delete the device <strong>{device.vendor} {device.model}</strong>?</p>
           </div>
           <footer className="modal-footer">
-            <Button text="Cancel" onClick={onClose(false)}/>
-            <Button text="Delete" onClick={this.handleDelete} disabled={isDeleting}/>
+            <Button theme="primary" onClick={onClose(false)}>Cancel</Button>
+            <Button theme="default" onClick={this.handleDelete} disabled={isDeleting}>Delete</Button>
           </footer>
         </div>
       </div>

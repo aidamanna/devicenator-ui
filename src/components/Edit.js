@@ -53,8 +53,8 @@ class Edit extends Component {
             <input type="text" id="name" value={operatingSystemVersion} onChange={this.handleChange('operatingSystemVersion')} ref={(input) => { this.operatingSystemVersionInput = input }}/>
           </form>
           <footer className="modal-footer">
-            <Button text="Cancel" onClick={onClose(false)}/>
-            <input type="submit" value="Update device" onClick={this.handleSubmit} disabled={isSending} className="button"/>
+            <Button theme="primary" onClick={onClose(false)}>Cancel</Button>
+            <input type="submit" value="Update device" onClick={this.handleSubmit} disabled={isSending} className="btn-default"/>
           </footer>
         </div>
       </div>

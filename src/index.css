@@ -5,6 +5,7 @@
     --turquoise: #77C6D4;
     --dark-turquoise: #418A99;
     --gray: #939EA1;
+    --light-gray: #B0BEC2;
     --dark-gray: #32454F;
     --transparent: rgba(0,0,0,0.6);
 }
@@ -185,7 +186,7 @@ h1 {
     margin-block-end: 0;
 }
 
-.button {
+.btn-default {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,10 +199,29 @@ h1 {
     margin-left: 8px;
 }
 
-.button:hover {
+.btn-default:hover {
     text-decoration: none;
     cursor: pointer;
     background-color: var(--turquoise);
+}
+
+.btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--off-white);
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: var(--gray);
+    padding: 10px 20px;
+    border-width: 0;
+    margin-left: 8px;
+}
+
+.btn-primary:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--light-gray);
 }
 
 .modal-container {
