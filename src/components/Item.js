@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import DeleteConfirmation from './DeleteConfirmation'
 import Edit from './Edit'
-import IconButton from './IconButton';
+import IconButton from './IconButton'
 
-class Item extends Component {
+class Item extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
@@ -58,7 +58,7 @@ class Item extends Component {
     const { device } = this.props
 
     return (<div><li className="list-item" >
-      <Link to={`/${device.imei}`}>
+      <Link to={`/devices/${device.imei}`}>
         <strong>{device.vendor} {device.model}</strong> - {device.operatingSystem} {device.operatingSystemVersion}
       </Link>
       <div className="icon-buttons-wrapper">
