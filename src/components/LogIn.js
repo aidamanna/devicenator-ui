@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { logIn } from '../api'
+import { logIn, registerLogIn } from '../api'
 import PropTypes from 'prop-types'
 
 class LogIn extends Component {
@@ -29,7 +29,10 @@ class LogIn extends Component {
 
     this.setState({ isSending: true })
     logIn(email, password)
-      .then(() => this.props.history.push('/devices'))
+      .then(() => {
+        registerLogIn(email, password)
+        this.props.history.push('/devices')
+      })
       .catch(() => this.setState({ isSending: false, showErrorMessage: true }))
   }
 

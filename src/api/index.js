@@ -1,56 +1,46 @@
+import axios from 'axios'
+
 const url = 'http://localhost:8080/'
 
-export const listDevices = async () => {
-  const devices = await fetch(url + 'devices', {
-    headers: { Authorization: 'Basic ' + window.btoa('aida:none') }
-  })
-  return devices.json()
+export const listDevices = () => {
+  return axios.get(url + 'devices')
 }
 
 export const getDevice = async (imei) => {
-  const device = await fetch(url + 'devices/' + imei, {
-    headers: { Authorization: 'Basic ' + window.btoa('aida:none') }
-  })
-  return device.json()
+  return axios.get(url + 'devices/' + imei)
 }
 
-export const addDevice = async (device) => {
-  await fetch(url + 'devices', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + window.btoa('aida:none')
-    },
-    body: JSON.stringify(device)
-  })
+export const addDevice = (device) => {
+  return axios.post(url + 'devices',
+    JSON.stringify(device), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
 }
 
-export const updateDevice = async (imei, device) => {
-  await fetch(url + 'devices/' + imei, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + window.btoa('aida:none')
-    },
-    body: JSON.stringify(device)
-  })
+export const updateDevice = (imei, device) => {
+  return axios.put(url + 'devices/' + imei,
+    JSON.stringify(device), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
 }
 
-export const deleteDevice = async (imei) => {
-  await fetch(url + 'devices/' + imei, {
-    method: 'DELETE',
-    headers: { Authorization: 'Basic ' + window.btoa('aida:none') }
-  })
+export const deleteDevice = (imei) => {
+  return axios.delete(url + 'devices/' + imei)
 }
 
 export const logIn = (user, password) => {
-  return new Promise((resolve, reject) => {
-    fetch(url + 'login', { headers: { Authorization: 'Basic ' + window.btoa(user + ':' + password) } })
-      .then(response => {
-        if (response.status !== 200) {
-          return reject(response.status)
-        }
-        return resolve()
-      })
+  return axios.get(url + 'login', {
+    headers: { Authorization: 'Basic ' + window.btoa(user + ':' + password) }
+  })
+}
+
+export const registerLogIn = (user, password) => {
+  axios.interceptors.request.use(config => {
+    config.headers.authorization = 'Basic ' + window.btoa(user + ':' + password)
+    return config
   })
 }

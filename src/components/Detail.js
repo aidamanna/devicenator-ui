@@ -16,8 +16,8 @@ class Detail extends Component {
   componentDidMount () {
     this.setState({ isLoading: true })
 
-    getDevice(this.props.match.params.id).then(data => {
-      this.setState({ isLoading: false, device: data })
+    getDevice(this.props.match.params.id).then(device => {
+      this.setState({ isLoading: false, device: device.data })
     })
   }
 
