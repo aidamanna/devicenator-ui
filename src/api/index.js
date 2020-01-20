@@ -32,15 +32,18 @@ export const deleteDevice = (imei) => {
   return axios.delete(url + 'devices/' + imei)
 }
 
-export const logIn = (user, password) => {
-  return axios.get(url + 'login', {
-    headers: { Authorization: 'Basic ' + window.btoa(user + ':' + password) }
-  })
+export const authenticate = (username, password) => {
+  return axios.post(url + 'authenticate',
+    { username, password }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
 }
 
-export const registerLogIn = (user, password) => {
+export const registerAuthentication = (token) => {
   axios.interceptors.request.use(config => {
-    config.headers.authorization = 'Basic ' + window.btoa(user + ':' + password)
+    config.headers.authorization = 'Bearer ' + token
     return config
   })
 }
