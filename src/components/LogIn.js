@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { authenticate, registerAuthentication } from '../api'
+import { authenticate, saveAuthorizationToken } from '../api'
 import PropTypes from 'prop-types'
 
 class LogIn extends Component {
@@ -30,7 +30,7 @@ class LogIn extends Component {
     this.setState({ isSending: true })
     authenticate(email, password)
       .then(response => {
-        registerAuthentication(response.data.token)
+        saveAuthorizationToken(response.data.token)
         this.props.history.push('/devices')
       })
       .catch(() => this.setState({ isSending: false, showErrorMessage: true }))
