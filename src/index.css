@@ -418,3 +418,9 @@ p {
     width: 34px;
     margin-right: 20px;
 }
+
+.error-msg {
+    color: var(--red);
+    text-align: center;
+    margin-block-start: 0;
+}

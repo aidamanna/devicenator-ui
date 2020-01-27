@@ -21,8 +21,8 @@ class List extends Component {
   componentDidMount () {
     this.setState({ isLoading: true })
 
-    listDevices().then(data => {
-      this.setState({ isLoading: false, devices: data })
+    listDevices().then(devices => {
+      this.setState({ isLoading: false, devices: devices.data })
     })
   }
 
@@ -35,8 +35,8 @@ class List extends Component {
     return () => {
       if (reload) {
         this.setState({ isLoading: true, showAdd: false })
-        listDevices().then(data => {
-          this.setState({ devices: data, isLoading: false, showAdd: false })
+        listDevices().then(devices => {
+          this.setState({ devices: devices.data, isLoading: false, showAdd: false })
         })
       } else {
         this.setState({ showAdd: false })
@@ -47,8 +47,8 @@ class List extends Component {
   handleRefreshList () {
     return () => {
       this.setState({ isLoading: true })
-      listDevices().then(data => {
-        this.setState({ devices: data, isLoading: false })
+      listDevices().then(devices => {
+        this.setState({ devices: devices.data, isLoading: false })
       })
     }
   }

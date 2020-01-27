@@ -1,56 +1,56 @@
-const url = 'http://localhost:8080/'
+import axios from 'axios'
 
-export const listDevices = async () => {
-  const devices = await fetch(url + 'devices', {
-    headers: { Authorization: 'Basic ' + window.btoa('aida:none') }
+const url = 'http://35.223.227.103:8080/'
+
+export const listDevices = () => {
+  return axios.get(url + 'devices', {
+    headers: { Authorization: getAuthorizationHeader() }
   })
-  return devices.json()
 }
 
 export const getDevice = async (imei) => {
-  const device = await fetch(url + 'devices/' + imei, {
-    headers: { Authorization: 'Basic ' + window.btoa('aida:none') }
-  })
-  return device.json()
-}
-
-export const addDevice = async (device) => {
-  await fetch(url + 'devices', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + window.btoa('aida:none')
-    },
-    body: JSON.stringify(device)
+  return axios.get(url + 'devices/' + imei, {
+    headers: { Authorization: getAuthorizationHeader() }
   })
 }
 
-export const updateDevice = async (imei, device) => {
-  await fetch(url + 'devices/' + imei, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + window.btoa('aida:none')
-    },
-    body: JSON.stringify(device)
+export const addDevice = (device) => {
+  return axios.post(url + 'devices',
+    JSON.stringify(device), {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: getAuthorizationHeader()
+      }
+    })
+}
+
+export const updateDevice = (imei, device) => {
+  return axios.put(url + 'devices/' + imei,
+    JSON.stringify(device), {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: getAuthorizationHeader()
+      }
+    })
+}
+
+export const deleteDevice = (imei) => {
+  return axios.delete(url + 'devices/' + imei, {
+    headers: { Authorization: getAuthorizationHeader() }
   })
 }
 
-export const deleteDevice = async (imei) => {
-  await fetch(url + 'devices/' + imei, {
-    method: 'DELETE',
-    headers: { Authorization: 'Basic ' + window.btoa('aida:none') }
-  })
+export const authenticate = (username, password) => {
+  return axios.post(url + 'authenticate',
+    { username, password }, {
+      headers: { 'Content-Type': 'application/json' }
+    })
 }
 
-export const logIn = (user, password) => {
-  return new Promise((resolve, reject) => {
-    fetch(url + 'login', { headers: { Authorization: 'Basic ' + window.btoa(user + ':' + password) } })
-      .then(response => {
-        if (response.status !== 200) {
-          return reject(response.status)
-        }
-        return resolve()
-      })
-  })
+export const saveAuthorizationToken = (token) => {
+  localStorage.setItem('token', token)
+}
+
+const getAuthorizationHeader = () => {
+  return 'Bearer ' + localStorage.getItem('token')
 }
