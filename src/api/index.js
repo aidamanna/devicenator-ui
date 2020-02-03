@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://35.223.227.103:8080/'
+const url = 'http://localhost:8080/'
 
 export const listDevices = () => {
   return axios.get(url + 'devices', {
