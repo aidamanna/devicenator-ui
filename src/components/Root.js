@@ -5,6 +5,7 @@ import Footer from './Footer'
 import LogIn from './LogIn'
 import List from './List'
 import Detail from './Detail'
+import PrivateRoute from './PrivateRoute'
 
 const Root = () => (
   <BrowserRouter>
@@ -12,8 +13,9 @@ const Root = () => (
       <Header/>
       <main className="main">
         <Route exact path="/login" component={LogIn}/>
-        <Route exact path="/devices" component={List}/>
-        <Route exact path="/devices/:id" component={Detail}/>
+        <PrivateRoute exact path="/" component={List}/>
+        <PrivateRoute exact path="/devices" component={List}/>
+        <PrivateRoute exact path="/devices/:id" component={Detail}/>
       </main>
       <Footer/>
     </div>
