@@ -4,15 +4,14 @@ node_js:
 
 cache: npm
 
-before_install:
-  - openssl aes-256-cbc -K $encrypted_d3e6cba3603e_key -iv $encrypted_d3e6cba3603e_iv -in devicenator-b243d0d14767.json.enc -out devicenator-b243d0d14767.json -d
-
 script:
 - npm run build
 
 deploy:
-  provider: gae
-  keyfile: devicenator-b243d0d14767.json
-  project: devicenator
-
-
+  provider: s3
+  access_key_id: "AWS_ACCESS_KEY_ID"
+  secret_access_key: "AWS_SECRET_KEY"
+  bucket: "devicenator.com"
+  acl: public_read
+  skip_cleanup: true
+  local_dir: build
