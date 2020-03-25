@@ -9,11 +9,10 @@ script:
 
 deploy:
   provider: s3
-  access_key_id: "AWS_ACCESS_KEY_ID"
-  secret_access_key: "AWS_SECRET_KEY"
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
   bucket: "devicenator.com"
   region: eu-west-1
   acl: public_read
   skip_cleanup: true
   local_dir: build
-
