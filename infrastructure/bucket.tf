@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "devicenator-ui" {
-  bucket = "devicenator.com"
+  bucket = local.domain_name
   acl = "public-read"
 
   website {
@@ -27,7 +27,7 @@ data "aws_iam_policy_document" "s3-bucket-policy-document" {
       "s3:GetObject"
     ]
     resources = [
-      "arn:aws:s3:::devicenator.com/*"
+      "arn:aws:s3:::${local.domain_name}/*"
     ]
   }
 }
