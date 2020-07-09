@@ -2,6 +2,7 @@ terraform {
   backend "s3" {
     encrypt = true
     bucket = "devicenator-state-bucket"
+    profile = "devicenator"
     region = "eu-west-1"
     key = "devicenator-ui-terraform.tfstate"
     dynamodb_table = "devicentator-state-lock"
@@ -9,6 +10,6 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"
+  profile = "devicenator"
   region  = local.region
 }
