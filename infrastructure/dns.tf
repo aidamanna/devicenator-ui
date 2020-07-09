@@ -8,8 +8,8 @@ resource "aws_route53_record" "devicenator" {
   type    = "A"
 
   alias {
-    name    = aws_s3_bucket.devicenator-ui.website_domain
-    zone_id = aws_s3_bucket.devicenator-ui.hosted_zone_id
+    name    = aws_cloudfront_distribution.s3_distribution.domain_name
+    zone_id = local.cloudfront_zone_id
     evaluate_target_health = false
   }
 }
