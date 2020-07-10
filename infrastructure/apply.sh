@@ -9,5 +9,3 @@ terraform apply devicenator-ui.plan
 
 rm devicenator-ui.plan
 rm -rf ./.terraform
-rm terraform.tfstate
-rm terraform.tfstate.backup
