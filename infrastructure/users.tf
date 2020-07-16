@@ -46,3 +46,23 @@ data "aws_iam_policy_document" "deploy-website-policy-document" {
     ]
   }
 }
+
+resource "aws_iam_user_policy" "invalidate-cloudfront-cache-policy" {
+  name = "invalidate-cloudfront-cache"
+  user = aws_iam_user.travis-devicenator-ui.name
+  policy = data.aws_iam_policy_document.invalidate-cloudfront-cache-policy-document.json
+}
+
+data "aws_iam_policy_document" "invalidate-cloudfront-cache-policy-document" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "cloudfront:ListDistributions",
+      "cloudfront:CreateInvalidation"
+    ]
+    resources = [
+      "*"
+    ]
+  }
+}
+
