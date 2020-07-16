@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
+
+aws s3 sync ../build s3://devicenator.com
 
 aws configure set preview.cloudfront true
 

@@ -12,13 +12,5 @@ script:
   - npm run build
 
 deploy:
-  provider: s3
-  access_key_id: ${AWS_ACCESS_KEY_ID}
-  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-  bucket: "devicenator.com"
-  region: eu-west-1
-  skip_cleanup: true
-  local_dir: build
-
-after_deploy:
-  - ./infrastructure/invalidate-cloudfront-cache.sh
+  provider: script
+  script: bash ./infrastructure/deploy-website.sh
