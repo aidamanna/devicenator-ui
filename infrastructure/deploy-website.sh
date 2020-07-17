@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-aws s3 sync ../build s3://devicenator.com
+aws s3 sync ./build s3://devicenator.com
 
 aws configure set preview.cloudfront true
 

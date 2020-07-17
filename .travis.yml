@@ -14,3 +14,4 @@ script:
 deploy:
   provider: script
   script: bash ./infrastructure/deploy-website.sh
+  skip_cleanup: true
