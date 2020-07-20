@@ -56,7 +56,8 @@ data "aws_iam_policy_document" "invalidate-cloudfront-cache-policy-document" {
     effect = "Allow"
     actions = [
       "cloudfront:ListDistributions",
-      "cloudfront:CreateInvalidation"
+      "cloudfront:CreateInvalidation",
+      "cloudfront:GetInvalidation"
     ]
     resources = [
       "*"
