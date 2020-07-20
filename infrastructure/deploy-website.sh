@@ -4,8 +4,6 @@ set -euxo pipefail
 
 aws s3 sync ./build s3://devicenator.com --delete
 
-aws configure set preview.cloudfront true
-
 DISTRIBUTION_ID=$(aws cloudfront list-distributions \
   | jq -r '.DistributionList.Items[] | select(.Origins.Items[0].Id = "devicenator.com") | .Id')
 
