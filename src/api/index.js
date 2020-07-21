@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://api.devicenator.com/'
+const url = 'https://api.devicenator.com/'
 
 export const listDevices = () => {
   return axios.get(url + 'devices', {
