@@ -10,7 +10,7 @@ resource "aws_acm_certificate" "certificate" {
   provider = aws.virginia
 
   tags = {
-    Name = "devicenator-certificate"
+    Name = "kitchenator-certificate"
   }
 }
 
